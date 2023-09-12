@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLite BREAD (Browse, Read, Edit, Add, Delete) and Pagination</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/util.js"></script>
+</head>
+
+
+<body>
+    <div>
+        <div class="groupTittle">
+            <h1>
+                <center class="title">SQLite BREAD (Browse, Read, Edit, Add, Delete) and Pagination</center>
+            </h1>
+        </div>
+        <div class="groupForm">
+            <form action="/" method="get">
+                <input type="hidden" name="page" value="1">
+                <label> Name </label>
+                <input type="text" name="name" placeholder="masukkan nama kamu" value="<%= query.name %>">
+                <label> Height </label>
+                <input type="number" name="height" placeholder="masukkan tinggi kamu" value="<%= query.height %>">
+                <label> Weight </label>
+                <input type="number" step=0.01 name="weight" placeholder="masukkan berat badan kamu" value="<%= query.weight %>">
+                <label> Birthdate </label>
+                <input type="date" name="startdate" value="<%= query.startdate %>">&nbsp;s.d&nbsp;<input type="date" name="enddate" value="<%= query.enddate %>">
+                <label> Is Married </label>
+                <select type="text" name="married" value="<%= query.married %>">
+                    <option disabled selected>-select married-</option>
+                    <option value="1" <%= query.married == '1' ? ' selected' : '' %>>Yes</option>
+                    <option value="0" <%= query.married == '0' ? ' selected' : '' %>>Not Yet</option>
+                </select><br>
+                <label> Operation </label>
+                <input type="radio" value="OR" name="radioOperator" <%= query.radioOperator == 'OR' ? ' checked' : ''%>>
+                  <label for="Or" id="or">OR</label>
+                <input type="radio" value="AND" name="radioOperator" <%= query.radioOperator == 'AND' ? ' checked' : ''%>>
+                  <label for="And" id="and">AND</label><br>
+                <button type="submit"> Search </button> 
+                <a href="/" class="btn4"
+                    style="background-color: orange;"> Reset </a>
+            </form>
+
+            <hr>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name.</th>
+                        <th>Height.</th>
+                        <th>Weight.</th>
+                        <th>Birth Date</th>
+                        <th>Is Married</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach((row, index)=>{ %>
+                        <tr>
+                            <td>
+                                <%= row.id %>
+                            </td>
+                            <td>
+                                <%= row.name %>
+                            </td>
+                            <td>
+                                <%= row.height %>
+                            </td>
+                            <td>
+                                <%= row.weight %>
+                            </td>
+                            <td>
+                                <%= row.birthdate %>
+                            </td>
+                            <td>
+                                <%= row.married ? "Yes" : "Not Yet" %>
+                            </td>
+                            <td><a href="/update/<%= row.id %>" class="btn1">Update</a>
+                                <button type="button" class="btn2"
+                                    onclick="showDelete('<%= row.id %>', '<%= row.name %>')">Delete</a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <div class="groupButton">
+            <a href="/add" class="btn">Add</a>
+            <div class="pagination">
+
+                <% if(page> 1){ %>
+                    <a href="http://localhost:3000/?page=<%= page - 1 %>">&laquo;</a>
+                    <% } %>
+
+                        <% for(let i=1; i <=pages; i++){ %>
+                            <% if (page==i) { %>
+                                <a href="/?page=<%= i %>" class="active">
+                                    <%= i %>
+                                </a>
+
+                                <% } else { %>
+                                    <a href="<%= url.replace(`page=${page}`, `page=${i}`) %>">
+                                        <%= i %>
+                                    </a>
+                                    <% } %>
+                                        <% } %>
+
+                                            <% if(page < pages){ %>
+                                                <a href="http://localhost:3000/?page=<%= Number(page) + 1 %>">&raquo;</a>
+                                                <% } %>
+
+            </div>
+        </div>
+    </div>
+    <div id="deleteModal">
+        <div class="card">
+            <div class="groupCardTittle">
+                <h4> Delete Confirmation </h4>
+            </div>
+            <div class="groupCardForm">
+                <p id="labelcard"></p>
+            </div>
+            <div class="groupCardButton">
+                <div class="buttonCard2">
+                    <button type="button" class="btn3" onclick="hideDelete()"> No </button>
+                    <a id="deleteYes" class="btn2" style="background-color: orange;" href="#"> Yes </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

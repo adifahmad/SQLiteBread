@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Data</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="groupTittle">
+            <h1>
+                <center class="title">Updating Data</center>
+            </h1>
+        </div>
+        <div class="groupForm">
+            <form action="" method="post">
+                <label> Name </label>
+                <input type="text" name="name" placeholder="masukkan nama kamu" value="<%= tier.name %>">
+                <label> Height </label>
+                <input type="number" name="height" placeholder="masukkan tinggi kamu" value="<%= tier.height %>">
+                <label> Weight </label>
+                <input type="number" step=0.01 name="weight" placeholder="masukkan berat badan kamu"
+                    value="<%= tier.weight %>">
+                <label> Birthdate </label>
+                <input type="date" name="birthdate" id="date1" value="<%= tier.birthdate %>">
+                <div class="groupRadio">
+                <label> Is Married </label>
+                <div class="groupButtonRadio">
+                <div>
+                <input type="radio" value="0" name="married" <%= tier.married ? '' : ' checked' %>>
+                  <label for="Notyet">Not Yet</label>
+                </div>
+                <div>
+                <input type="radio" value="1" name="married" <%= tier.married ? ' checked' : '' %>>
+                  <label for="Yes">Yes</label>
+                </div>
+                </div>
+                </div>
+                </div>
+        <div class="groupButton">
+            <button type="submit" class="btn"> Simpan </button> <a href="/"
+                style="background-color: orange;" class="btn4">cancel</a>
+        </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

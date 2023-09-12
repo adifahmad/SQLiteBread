@@ -1,0 +1,318 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 16px;
+}
+
+.groupTittle {
+  background-color: rgb(235, 235, 235);
+  padding: 14px 14px 14px 14px;
+  border: 1px grey(197, 195, 195);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.groupButton {
+  background-color: rgb(235, 235, 235);
+  padding: 20px 20px 20px 20px;
+  border: 1px grey(197, 195, 195);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  flex-direction: row;
+}
+
+.groupForm {
+  padding: 14px 14px 14px 14px;
+  border: 3px solid #f1f1f1;
+}
+
+.groupButtonRadio {
+  padding: 14px 14px 14px 14px;
+  display: inline-flex;
+  flex-direction: column;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  flex-direction: row;
+}
+
+.groupForm {
+  padding: 14px 14px 14px 14px;
+  border: 3px solid #f1f1f1;
+}
+
+.groupButtonRadio {
+  padding: 14px 14px 14px 14px;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: Arial, Helvetica, sans-serif
+}
+
+body {
+  background-color: white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+form {
+  background-color: white;
+  border: 1px rgb(197, 195, 195);
+}
+
+label {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 12px 0px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+#and,
+#or {
+  width: fit-content;
+  padding: 0px;
+  margin-right: 10px;
+  display: inline;
+}
+
+#label1,
+#label2 {
+  width: fit-content;
+  padding: 0px;
+  margin-right: 10px;
+}
+
+/* Full-width inputs */
+input[type=text],
+input[type=number],
+select {
+  width: 74%;
+  padding: 12px 20px;
+  margin: 12px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type=date] {
+  width: 36%;
+  padding: 12px 20px;
+  margin: 12px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+#date1,
+#date2 {
+  width: 74%;
+  padding: 12px 20px;
+  margin: 12px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+hr {
+  border-top: 5px rgb(197, 197, 197);
+  text-shadow: 2px 2px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #03b0b6;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  border-radius: 12px;
+}
+
+.btn {
+  background-color: #391bdf;
+  color: white;
+  padding: 14px 30px 14px 30px;
+  border: none;
+  cursor: pointer;
+  width: 12%;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.btn1 {
+  background-color: green;
+  color: white;
+  padding: 8px 12px 8px 12px;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 12px;
+
+}
+
+.btn2 {
+  background-color: red;
+  color: white;
+  padding: 10px 14px 10px 14px;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.btn3 {
+  background-color: grey;
+  color: white;
+  padding: 11px 14px 11px 14px;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 12px;
+
+}
+
+.btn4 {
+  background-color: orange;
+  color: black;
+  padding: 13px 45px 13px 45px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 12px;
+
+}
+
+.pagination {
+  display: inline-block;
+  background-color: white;
+  float: right;
+}
+
+.pagination a {
+  color: blue;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid blue;
+}
+
+.pagination a.active {
+  background-color: blue;
+  color: white;
+  border: 1px solid blue;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+#deleteModal {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+.container {
+  border-radius: 10px;
+  margin: 30px;
+  padding: 20px;
+  border: 1px solid rgb(211, 211, 211);
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  width: 500px;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+.groupCardTittle{
+  background-color: white;
+  padding: 5px 5px 5px 5px;
+  border: 1px grey(197, 195, 195);
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.groupCardForm{
+  padding: 14px 14px 14px 14px;
+  border: 3px solid #f1f1f1;
+  width: 100%;
+}
+
+.groupCardButton{
+  background-color: white;
+  padding: 5px 5px 5px 5px;
+  border: 1px grey(197, 195, 195);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  flex-direction: row;
+  width: 100%;
+}
+
+.label #labelCard{
+width: 100%;
+}
+
+.buttonCard2{
+  color: white;
+  padding: 10px 20px 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 12px;
+  float:right;
+}
