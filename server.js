@@ -45,6 +45,12 @@ app.get('/', (req, res) => {
     if (startdate && enddate) {
         queries.push(`birthdate BETWEEN ? and ?`)
         params.push(startdate, enddate)
+    } else if(startdate){
+        queries.push(`birthdate >= ?`)
+        params.push(startdate)
+    } else if(enddate){
+        queries.push(`birthdate <= ?`)
+        params.push(enddate)
     }
 
     if (married) {
@@ -71,12 +77,14 @@ app.get('/', (req, res) => {
             sql += ` WHERE ${queries.join(` ${radioOperator} `)}`
         }
 
+        sql += ' ORDER BY id DESC'
+
         sql += ` LIMIT ? OFFSET ?`
         params.push(limit, offset)
 
         db.all(sql, params, (err, rows) => {
             if (err) return res.send(err)
-            res.render('list', { data: rows, query: req.query, pages, page, url })
+            res.render('list', { data: rows, query: req.query, pages, offset, page, url })
         })
     })
 })
