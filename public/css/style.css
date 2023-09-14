@@ -46,6 +46,7 @@
   padding: 14px 14px 14px 14px;
   display: inline-flex;
   flex-direction: column;
+  width: 50%;
 }
 
 .title {
